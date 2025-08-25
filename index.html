@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOSIA WOLSKA</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: red;
+            background-image: url('64c54836-a201-4432-a3a4-497e394e567b.gif');
+            background-size: cover;
+            animation: backgroundFlash 0.1s infinite alternate;
+        }
+
+        @keyframes backgroundFlash {
+            0% { background-color: red; }
+            100% { background-color: white; }
+        }
+
+        #title {
+            font-size: 100px;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            animation: colorChange 1s infinite alternate;
+            z-index: 10;
+        }
+
+        @keyframes colorChange {
+            0% { color: red; }
+            25% { color: blue; }
+            50% { color: yellow; }
+            75% { color: green; }
+            100% { color: purple; }
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            z-index: 5;
+            color: white;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="title">ZOSIA WOLSKA</div>
+
+    <script>
+        function createSnowflakes() {
+            const numberOfFlakes = 100;
+            const body = document.body;
+
+            for (let i = 0; i < numberOfFlakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+
+                body.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes();
+    </script>
+
+    <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    Seu navegador não suporta o formato de áudio.
+</audio>
+
